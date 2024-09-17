@@ -86,4 +86,17 @@ Masuk ke file views.py dan membuat 4 fungsi untuk melihat data JSON dan XML yait
 Menambahkan path untuk menampilkan page yang dapat melihat database yang ditampilkan dalam bentuk JSON maupun XML
 7. Melakukan push ke pws dan github
 
+### Postman Documentation
+`show_xml`
+<img src="./images/show_xml.png" width="1802" height="330">
+
+`show_json`
+<img src="./images/show_json.png" width="1802" height="330">
+
+`show_xml_by_id`
+<img src="./images/show_xml_by_id.png" width="1802" height="330">
+
+`show_json_by_id`
+<img src="./images/show_json_by_id.png" width="1802" height="330">
+
 
