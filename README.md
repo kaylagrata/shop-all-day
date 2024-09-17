@@ -88,16 +88,16 @@ Menambahkan path untuk menampilkan page yang dapat melihat database yang ditampi
 
 ### Postman Documentation
 `show_xml`
-<img src="./images/show_xml.jpg" width="1802" height="330">
+<img src="./images/show_xml.jpg" width="800" height="603">
 
 `show_json`
-<img src="./images/show_json.jpg" width="1802" height="330">
+<img src="./images/show_json.jpg" width="800" height="603">
 
 `show_xml_by_id`
-<img src="./images/show_xml_by_id.jpg" width="1802" height="330">
+<img src="./images/show_xml_by_id.jpg" width="800" height="603">
 
 `show_json_by_id`
-<img src="./images/show_json_by_id.jpg" width="1802" height="330">
+<img src="./images/show_json_by_id.jpg" width="800" height="603">
 
 
 
