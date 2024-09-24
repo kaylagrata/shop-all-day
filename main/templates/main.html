@@ -2,8 +2,6 @@
 {% block content %}
 <h1>Shop All Day</h1>
 
-<h5>Application: </h5>
-<p>{{ application }}</p> 
 <h5>Name: </h5>
 <p>{{ name }}<p>
 <h5>Class: </h5>
@@ -42,4 +40,8 @@
 <a href="{% url 'main:create_product' %}">
     <button>Add New Product</button>
 </a>
+<a href="{% url 'main:logout' %}">
+    <button>Logout</button>
+</a>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
 {% endblock content %}

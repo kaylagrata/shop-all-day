@@ -1,7 +1,7 @@
 
 Link PWS: http://kayla-agrata-shopallday.pbp.cs.ui.ac.id
 # Tugas 2
-# 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 Hal pertama yang harus dilakukan adalah membuat sebuah direktori utama yang diberi nama shop-all-day. Kemudian, langkah selanjutnya adalah mengaktifkan virtual environment. Setelah itu, saya membuat file requirements.txt yang diisi dengan beberapa dependencies dan melakukan instalasi terhadap dependencies tersebut.
 
 1) Setup Proyek Django
@@ -22,13 +22,13 @@ Melakukan integrasi model, views, dan template pada berkas 'views.py'. Fungsinya
 Menambahkan 'urls.py' pada direktori main agar dapat mengambil modul main views sebagai tampilan ketika mengakses url. 
 
 
-# 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+### 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 Link bagan : https://drive.google.com/file/d/1-mmPskH5lrDAkIWCBSBKqGPpG39R2JCW/view?usp=sharing
 Bagan tersebut menggambarkan konsep Django yaitu MVT (Model-Views-Template)
 Model berfungsi untuk mengelola data dan berinteraksi dengan database. Isi dari model biasanya class yang berhubungan dengan aplikasi tersebut. Views berfungsi untuk mengambil data yang diperlukan dari model, mengirimkan data tersebut ke template, dan mengelola data apa yang dapat ditampilkan ke user. Template sebagai tampilan data yang diberikan oleh views pada user dengan format yang ditentukan.
 
 
-# 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
+### 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
 1) Untuk berkolaborasi
 Git memungkinkan para pengembang untuk bekerja sama dengan pengembang  atau tim lain dalam satu repositori utama. Git akan menyimpan setiap perubahan yang dilakukan dan dapat melakukan sinkronisasi dengan repositori lainnya. Adanya branch pada git memungkinkan para pengembang untuk mengerjakan fitur-fitur yang berbeda secara terpisah.  Sumber : domainesia.com
 2) Melacak Perubahan
@@ -37,10 +37,10 @@ Setiap perubahan yang dilakukan pada kode tercatat, hal ini dapat memudahkan par
 Kode tersimpan dalam repositori remote di Github sehingga terdapat backup apabila terjadi sesuatu yang tidak diinginkan. Sumber : dte.telkomuniversity.ac.id
 
 
-# 4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
+### 4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
 Django menggunakan bahasa python yang mudah dimengerti oleh para pemula dalam pemrograman. Django juga memiliki dokumentasi yang lengkap sehingga mempermudah proses pembelajaran. Django juga memiliki komunitas yang banyak sehingga pemula dalam pemrograman dapat mendapatkan bantuan. Django juga membantu pemula untuk memahami struktur aplikasi dengan baik karena adanya pola Model-View-Template.
 
-# 5. Mengapa model pada Django disebut sebagai ORM?
+### 5. Mengapa model pada Django disebut sebagai ORM?
 ORM adalah singkatan dari Object-Relational-Mapping. Model pada Django disebut sebagai ORM karena Django ORM memiliki tugas untuk memetakan objek ke struktur basis data relasional dan mendefinisikan model python dalam tabel. Tabel ini dapat berinteraksi dengan data menggunakan operasi objek python tanpa adanya keterlibatan SQL. Sumber : rumahcoding.co.id
 
 # Tugas 3 : Implementasi Form dan Data Delivery pada Django
@@ -100,5 +100,44 @@ Menambahkan path untuk menampilkan page yang dapat melihat database yang ditampi
 `show_json_by_id`
 <img src="./images/show_json_by_id.jpg" width="800" height="603">
 
+
+# Tugas 4 : Implementasi Autentikasi, Session, dan Cookies pada Django
+### 1. Apa perbedaan antara `HttpResponseRedirect()` dan `redirect()`?
+Dalam Django, `HttpResponseRedirect()` dan `redirect()` digunakan untuk mengirim user ke URL yang berbeda. Akan tetapi, keduanya memiliki perbedaan yang signifikan:
+- Dalam segi return type `HttpResponseRedirect()` membuat HTTP response object secara langsung yang redirect ke URL yang sudah dispesifikasi. Di sisi lain, `redirect()` adalah sebuah shortcut function yang juga return sebagai `HttpResponseRedirect()` tetapi lebih fleksibel dalam menerima argumen. Karena `redirect()` bisa menerima URL, nama view, dan model instance.
+- Dalam segi parameter, ketika menggunakan `redirect()` bisa pass positional dan named parameters yang nantinya akan digunakan untuk membangun URL. Jadi, dengan hanya memberikan nama view atau URL tujuan pada `redirect()`, Django secara otomatis akan mengonversinya menjadi URL yang sesuai. Ini sangat memudahkan ketika Anda menggunakan namespace atau view name, seperti dalam kasus redirect('main:show_main').
+
+### 2. Jelaskan cara kerja penghubungan model Product dengan User!
+Dalam Django, untuk menghubungkan model Product dengan User dibutuhkan membuat foreign key relationship dalam model Product yang merujuk ke model User. ForeignKey digunakan untuk membuat relasi satu ke banyak (one-to-many) antara Product dan User, di mana satu user dapat memiliki banyak product. `on_delete=models.CASCADE `artinya jika pengguna dihapus, semua product yang dimiliki oleh user tersebut juga akan dihapus.
+
+### 3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+- Authentication : Sebuah proses yang melakukan verifikasi menentukan siapa user. Ketika user log in dengan memberikan kredensial mereka seperti username dan password, maka sistem akan cek apakah kredensial tersebut tersimpan dalam data untuk mengkonfirmasi identitias mereka.
+- Authorization : Ketika user sudah authenticated, authorization menentukan resource atau action apa yang user bisa akses atau lakukan berdasarkan role mereka.
+
+Dalam implementasi Django, authentication dilakukan dengan cara ketika user log in menggunakan authentication views Django, kredensial yang mereka berikan akan dicek terhadap database. Django akan membuat session bagi user tersebut apabila kredensial yang diberikan valid. Sementara itu, authorization dilakukan permission classes dan decorators. Sebagai contoh menggunakan `@login_required` akan memastikan bahwa hanya authenticated user yang bisa mengakses beberapa view jadi user harus login terlebih dahulu agar bisa mengakses suatu halaman web.
+
+### 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+Django menggunakan session untuk mengingat user yang telah log in. Ketika log in user berhasil maka :
+- Membuat session : Sebuah session dibuat dari sisi server dan sebuah identifier/session ID disimpan dalam cookie di browser user.
+- Cookie Management : Cookie memungkinkan Django untuk mengidentifikasi user yang kembali tanpa memerlukan mereka untuk log in kembali sebelum session mereka expire atau user melakukan log out.
+
+Kegunaan cookie selain untuk proses authentication adalah:
+- Melacak user behavior karena cookie bisa menyimpan preferensi pengguna atau melacak aktivitas pengguna pada session
+- Menyimpan preferensi karena cookie bisa mengingat preferensi user settings seperti bahasa pilihan dan theme.
+
+Tidak semua cookie aman untuk digunakan, ini tergantung bagaimana keamnannya diimplementasikan. Untuk memastikan keamanan dalam penggunaan cookies, Django menyediakan dua opsi penting, yaitu HttpOnly dan Secure, yang dapat diterapkan pada cookies untuk melindungi data pengguna dari potensi risiko keamanan
+HttpOnly adalah atribut yang mencegah cookies diakses oleh kode JavaScript di sisi klien.
+Ketika atribut HttpOnly diaktifkan, cookie tersebut hanya dapat dibaca dan dimodifikasi oleh server melalui protokol HTTP/HTTPS. Secure adalah atribut yang memastikan bahwa cookie hanya dikirimkan melalui koneksi HTTPS yang encrypted.
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1. Membuat Form Register dengan cara membuat fungsi register dalam views.py untuk membuat form register yang menghasilkan akun user ketika disubmit, lalu membuat file html untuk register sebagai templates. Terakhir menambahkan path dalam urlpatterns agar bisa mengakses fungsi register.
+2. Membuat fungsi login dan logout, ketika login akan ada cookie last_login untuk melihat kapan terakhir kali user login, lalu untuk fungsi log_out menambahkan `response.delete_cookie('last_login')` untuk menghapus cookie ketika user logout.
+3. Menambahkan `'last_login': request.COOKIES['last_login']` berfungsi menambahkan informasi cookie last_login pada webpage
+4. Menambahkan path url login dan logout agar dapat mengarahkan permintaan user ke view yang sesuai
+5. Menambahkan decorator pada views.py `@login_required(login_url='/login')` agar halaman main hanya dapat diakses oleh pengguna yang sudah login
+6. Menghubungkan product dengan user dengan menggunakan ForeignKey dalam models.py agar sebuah produk pasti berhubungan dengan sebuah user. Setelah itu, melakukan migrate untuk menyimpan perubahan yang dilakukan pada model.
+
+
+ 
 
 
