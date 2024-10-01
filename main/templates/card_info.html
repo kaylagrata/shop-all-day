@@ -1,0 +1,45 @@
+<div class="bg-white max-w-lg mx-auto rounded-xl overflow-hidden border-2 border-[#303179] shadow-lg font-family-karla mt-10 flex items-center">
+  
+  <!-- Profile Image Section -->
+  <div class="p-4">
+    <img class="w-24 h-24 rounded-full border-4 border-[#ed7966]" src="{{ profile_picture_url }}" alt="Profile Image">
+  </div>
+
+  <!-- Name and Class Info Section -->
+  <div class="text-left p-4 flex flex-col space-y-2">
+    
+    <!-- Name Section -->
+    <div>
+      <h5 class="text-lg font-semibold text-[#141850]">Name</h5>
+      <div class="flex items-center text-sm text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#141850]" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm-.732-7.732A4 4 0 1114 6.732a4 4 0 01-4.732 5.536z" clip-rule="evenodd" />
+        </svg>
+        <span class="ml-2 text-[#141850]">{{ name }}</span>
+      </div>
+    </div>
+    
+    <!-- Class Section -->
+    <div>
+      <h5 class="text-lg font-semibold text-[#141850]">Class</h5>
+      <div class="flex items-center text-sm text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#141850]" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm-.732-7.732A4 4 0 1114 6.732a4 4 0 01-4.732 5.536z" clip-rule="evenodd" />
+        </svg>
+        <span class="ml-2 text-[#141850]">{{ class }}</span>
+      </div>
+    </div>
+
+    <!-- NPM Section -->
+    <div>
+      <h5 class="text-lg font-semibold text-[#141850]">NPM</h5>
+      <div class="flex items-center text-sm text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#141850]" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm-.732-7.732A4 4 0 1114 6.732a4 4 0 01-4.732 5.536z" clip-rule="evenodd" />
+        </svg>
+        <span class="ml-2 text-[#141850]">{{ npm }}</span> <!-- Replace npm with the actual variable -->
+      </div>
+    </div>
+
+  </div>
+</div>

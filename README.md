@@ -137,7 +137,36 @@ Ketika atribut HttpOnly diaktifkan, cookie tersebut hanya dapat dibaca dan dimod
 5. Menambahkan decorator pada views.py `@login_required(login_url='/login')` agar halaman main hanya dapat diakses oleh pengguna yang sudah login
 6. Menghubungkan product dengan user dengan menggunakan ForeignKey dalam models.py agar sebuah produk pasti berhubungan dengan sebuah user. Setelah itu, melakukan migrate untuk menyimpan perubahan yang dilakukan pada model.
 
+# Tugas 5 : Desain Web menggunakan HTML, CSS dan Framework CSS
+### 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+Inline style memiliki prioritas tertinggi. Inline style didefinisikan secara langsung pada HTML menggunakan `style`. Contoh `<h1 class="class1" style="color: yellow;"</h1>`. Prioritas kedua adalah ID Selectors. ID selector memiliki sifat unik terhadap suatu halaman dan ada simbol `#`. Contoh `#title {color: red;}`. Prioritas ketiga adalah Class Selectors. Class selectors diatandari dengan `.`, contoh `.class2 { color : aqua;}`.  Prioritas terakhir adalah element selector, selector ini menarget HTML elements secara spesifik. Contohnya adalah `p {color: black;}`.
 
- 
+### 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Menurut saya, responsive design menjadi konsep yang krusial dalam pengembangan aplikasi web karena saat ini ada banyak sekali device dan juga jenis browser yang digunakan untuk mengakses internet. Sehingga dibutuhkan responsive design agar aplikasi web dapat memberikan viewing experience yang optimal. Beberapa alasan utama mengapa responsive design penting adalah, yang pertama adalah dalam sisi user experience. Responsive design akan meningkatkan user experience dengan memastikan konten dapat dibaca dan dinavigasi dengan mudah dalam semua device. UX yang baik akan meningkatkan peluang bahwa user akan kembali menggunakan website tersebut. Selanjutnya, responsive design juga dapat meningkatkan search engine optimization, karena memiliki satu URL untuk semua device, hal ini akan menguntungkan karena Google memprioritaskan mobile-friendly website untuk ranking website mereka. Responsive design juga mempercepat kinerja dan kecepatan kerja karena dengan resposive design, satu set kode dapat digunakan untuk semua perangkat. Hal ini juga dapat menekan harga pembuatan karena membuat website untuk berbagai device dapat menjadi mahal dan membutuhkan waktu lama.
+Contoh aplikasi yang sudah menerapkan responsive design : 
+`https://www.sociolla.com/`, `https://beyondthevines.co.id/`, `https://aws.amazon.com`
+Contoh aplikasi yang belum menerapkan responsive design:
+`https://main.semarangkab.go.id/`, `https://jatimprov.go.id`, `https://academic.ui.ac.id`
 
+### 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+Margin adalah ruang yang terletak di luar border dari sebuah elemen, memiliki fungsi untuk membuat jarak antara elemen yang berdekatan. Border merupakan sebuah garis yang mengelilingi atau membungkus konten dan padding-nya. Border memerikan batas visual di sekitar elemen. Padding adalah ruang di dalam batas elemen, antara batas dan konten elemen. Fungsi padding yaitu menciptakan jarak antara konten dan tepi elemen atau mengosongkan area di sekitar konten. 
+/* Example */
+.box {
+    margin: 20px;          /* Sets margin around the box */
+    padding: 15px;         /* Sets padding inside the box */
+    border: 2px solid black; /* Sets a solid black border */
+}
 
+### 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+Flexbox adalah sebuah layout model yang one-dimensional untuk membuat distribusi ruang antar item. Flexbox berhubungan dengan tata letak dalam satu dimensi, baik sebagai baris atau kolom. Terdapat 2 sumbu pada flexbox yaitu main axis dan cross axis. Main axis ditentukan oleh flex-direction, sementara cross axis tegak lurus terhadap main axis. Flexbox bisa digunakan untuk membuat navigation bar horizontal dan melakukan alignment (penyelarasan) ketika mengelola labels dan input fields pada forms. Flexbos bisa juga digunakan untuk mengatur card component dalam grid responsif yang menyesuaikan berdasarkan ukuran layar.
+Grid layout adalah sistem tata letak dua dimensi yang memungkinkan developer membuat tata letak kompleks yang melibatkan baris dan kolom. Grid Layout memberikan kontrol yang lebih baik dibandingkan Flexbox untuk desain tata letak yang rumit. Grid layout memungkinkan developer untuk membuat elemen dari child grid container memposisikan dirinya sehingga benar-benar tumpang tindih dan berlapis. Item dapat ditempatkan di mana saja di grid menggunakan properti seperti grid-column dan grid-row, hal ini memungkinkan kontrol tata letak yang tepat. Grid layout cocok digunakan untuk web page layout karena bisa membuat sebuah sebuah halaman yang terdiri dari headers, footers, sidebars, dan content areas. Grid layout juga cocok digunakan untuk dashboard data yang kompleks karena grid layout dapat mengelola berbagai komponen secara terstruktur.
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+1. Membuaut fitur edit product dengan cara membuat fungsi edit_product pada views.py dan menambahkan path url edit product pada url patterns di urls.py.
+2. Membuat fitur delete product dengan cara membuat fungsi delete_product yang menerima parameter request dan id pada views.py lalu menambahkan path url delete product pada url patterns di urls.py.
+3. Membuat file html untuk edit product dan membuat file html untuk navigation bar.
+4. Membuat konfigurasi static files pada settings.py dengan menambahkan middleware WhiteNoise dan mengonfigurasikan STATIC_ROOT, STATICFILES_DIRS, dan STATIC_URL.
+5. Menambahkan styles denga Tailwind dengan cara menambahkan folder static dengan isinya global.css dan script tailwind ke base.html.
+6. Melakukan styling pada halaman login dan register.
+7. Melakukan styling pada halaman create_product dan edit_product.
+8. Melakukan styling pada card_info, card_product, main, dan navbar, serta memastikan semua fitur dapat digunakan. 
