@@ -166,12 +166,47 @@
     document.getElementById("cancelButton").addEventListener("click", hideModal);
     document.getElementById("closeModalBtn").addEventListener("click", hideModal);
 
+    function isValidInput(value) {
+        const regex = /<.*?>/;
+        return !regex.test(value);
+    }
+    
     function addProductEntry() {
+        const nameInput = document.getElementById("name");
+        const descriptionInput = document.getElementById("description");
+        
+        const errorElements = document.querySelectorAll('.error-message');
+        errorElements.forEach(el => el.remove());
+
+        const inputs = [
+            { field: nameInput, name: "Product Name" },
+            { field: descriptionInput, name: "Description" },
+        ];
+
+        for (const input of inputs) {
+            if (!isValidInput(input.field.value)) {
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = `${input.name} contains invalid characters.`;
+                errorMessage.className = 'error-message text-red-500 text-sm';
+                input.field.parentNode.appendChild(errorMessage);
+                return; 
+            }
+        }
+
+        nameInput.value = DOMPurify.sanitize(nameInput.value);
+        descriptionInput.value = DOMPurify.sanitize(descriptionInput.value);
+
         fetch("{% url 'main:add_product_ajax' %}", {
         method: "POST",
         body: new FormData(document.querySelector('#productForm')),
         })
-        .then(response => refreshProductEntries())
+        .then(response => {
+          if (response.ok) {
+              refreshProductEntries();
+              hideModal();
+            } 
+          })
+
 
         document.getElementById("productForm").reset(); 
         document.querySelector("[data-modal-toggle='crudModal']").click();
